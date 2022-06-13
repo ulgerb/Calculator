@@ -20,7 +20,7 @@
 </details>
 
 ## Explanation (Türkçe anlatımı aşağıdadır.)
-<!--- a normal html comment --->
+
 - First part of the code is to save the text from the button.
 - In order for "dell" to do the deletion, the displayEntry text needs to be reduced by 1.
 -     displayEntry = displayEntry.substring(0, displayEntry.length - 1);
@@ -39,12 +39,12 @@
             else displayEntry = displayEntry + buttonPress;
        }
 
-- Third part, Now let's examine the cases where displayEntry is not a number.
+- Third part, now let's examine the cases where displayEntry is not a number.
 -     number_false = function (value) {
         return isNaN(value);
       }
 
-- If the operator key is pressed, our priority should be to parse our number from the displayEntry. For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. 
+- If the operator key is pressed, our priority should be to parse our number from the displayEntry. For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. After saving the number and operator, we clear the displayEntry.
 -     if (operator_true(buttonPress)) {
                 prevEntry = parseFloat(displayEntry)
                 operation = buttonPress;
@@ -55,4 +55,15 @@
         return value === '/' || value === 'x' || value === '+' || value === '-';
       }
 
--
+- Fourth part, we need a function where we do "+", "-", "*", "/" to find out what the result is.
+-     operate = function (a, b, operation) {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        console.log(a, b, operation);
+        if (operation === '+') return a + b;
+        if (operation === '-') return a - b;
+        if (operation === 'x') return a * b;
+        if (operation === '/') return a / b;
+      }
+
+- 
