@@ -28,4 +28,12 @@
 -     number_true = function (value) {
         return !isNaN(value);
       };
+- After verifying that the pressed button is a number, we can print the numbers to the displayEntry using the "if" condition.
+-     else if (number_true(buttonPress)) {
+            if (displayEntry === '0') displayEntry = buttonPress;
+            else if (displayEntry == 'Infinity') displayEntry = buttonPress;
+            else if (displayEntry == 'NaN') displayEntry = buttonPress;
+            else if (displayEntry == 'undefined') displayEntry = buttonPress;
+            else displayEntry = displayEntry + buttonPress;
+        }
 
