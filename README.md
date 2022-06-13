@@ -24,10 +24,12 @@
 - First part of the code is to save the text from the button.
 - In order for "dell" to do the deletion, the displayEntry text needs to be reduced by 1.
 -     displayEntry = displayEntry.substring(0, displayEntry.length - 1);
-- second part, need to verify that the text from displayEntryy is the number.
+
+- Second part, need to verify that the text from displayEntryy is the number.
 -     number_true = function (value) {
         return !isNaN(value);
       };
+
 - After verifying that the pressed button is a number, we can print the numbers to the displayEntry using the "if" condition.
 -     else if (number_true(buttonPress)) {
             if (displayEntry === '0') displayEntry = buttonPress;
@@ -36,4 +38,9 @@
             else if (displayEntry == 'undefined') displayEntry = buttonPress;
             else displayEntry = displayEntry + buttonPress;
         }
+
+- Third part, Now let's examine the cases where displayEntry is not a number.
+-     number_false = function (value) {
+        return isNaN(value);
+    };
 
