@@ -21,8 +21,8 @@
 
 ## Explanation
 ### asd
-- First part of the code is to save the text from the button
+- First part of the code is to save the text from the button.
 - In order for "dell" to do the deletion, the displayEntry text needs to be reduced by 1.
-     displayEntry = displayEntry.substring(0, displayEntry.length - 1);
+      displayEntry = displayEntry.substring(0, displayEntry.length - 1);
 - 
 
