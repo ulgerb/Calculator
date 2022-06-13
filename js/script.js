@@ -48,7 +48,6 @@ $(document).ready(function () {
                 displayEntry = displayEntry + '';
 
             } else if (buttonPress === '=') {
-                ans = displayEntry;
                 if (operation != null) {
                     displayEntry = operate(prevEntry, displayEntry, operation);
                     operation = null;
