@@ -44,3 +44,14 @@
         return isNaN(value);
       }
 
+- If the operator key is pressed, our priority should be to parse our number from the displayEntry. For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. 
+-     if (operator_true(buttonPress)) {
+                prevEntry = parseFloat(displayEntry)
+                operation = buttonPress;
+                saveScreen() // Up screen
+                displayEntry = '';         
+      }
+      operator_true = function (value) {
+        return value === '/' || value === 'x' || value === '+' || value === '-';
+      }
+
