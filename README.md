@@ -3,10 +3,6 @@
 
 ## Video
 
-
-
-  
-
 <img src='https://user-images.githubusercontent.com/98836519/173416138-89c8b603-83eb-4563-8935-4622f751221e.gif' width='440' loop="true" autoplay="true !important" controls muted> 
 
 <details  class="details-reset border rounded-2 " style="max-width:440px !important;">
@@ -23,4 +19,9 @@
   </video>
 </details>
 
-asdasd
+## Explanation
+
+- First part of the code is to save the text from the button
+- In order for "dell" to do the deletion, the displayEntry text needs to be reduced by 1
+    displayEntry = displayEntry.substring(0, displayEntry.length - 1);
+
