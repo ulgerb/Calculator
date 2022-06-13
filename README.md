@@ -27,43 +27,53 @@
 
 - Second part, need to verify that the text from displayEntryy is the number.
 -     number_true = function (value) {
-        return !isNaN(value);
+          return !isNaN(value);
       }
 
 - After verifying that the pressed button is a number, we can print the numbers to the displayEntry using the "if" condition.
 -     else if (number_true(buttonPress)) {
-            if (displayEntry === '0') displayEntry = buttonPress;
-            else if (displayEntry == 'Infinity') displayEntry = buttonPress;
-            else if (displayEntry == 'NaN') displayEntry = buttonPress;
-            else if (displayEntry == 'undefined') displayEntry = buttonPress;
-            else displayEntry = displayEntry + buttonPress;
+          if (displayEntry === '0') displayEntry = buttonPress;
+          else if (displayEntry == 'Infinity') displayEntry = buttonPress;
+          else if (displayEntry == 'NaN') displayEntry = buttonPress;
+          else if (displayEntry == 'undefined') displayEntry = buttonPress;
+          else displayEntry = displayEntry + buttonPress;
        }
 
 - Third part, now let's examine the cases where displayEntry is not a number.
 -     number_false = function (value) {
-        return isNaN(value);
+          return isNaN(value);
       }
 
 - If the operator key is pressed, our priority should be to parse our number from the displayEntry. For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. After saving the number and operator, we clear the displayEntry.
 -     if (operator_true(buttonPress)) {
-                prevEntry = parseFloat(displayEntry)
-                operation = buttonPress;
-                saveScreen() // Up screen
-                displayEntry = '';         
+          prevEntry = parseFloat(displayEntry)
+          operation = buttonPress;
+          saveScreen() // Up screen
+          displayEntry = '';         
       }
       operator_true = function (value) {
-        return value === '/' || value === 'x' || value === '+' || value === '-';
+          return value === '/' || value === 'x' || value === '+' || value === '-';
       }
 
 - Fourth part, we need a function where we do "+", "-", "*", "/" to find out what the result is.
 -     operate = function (a, b, operation) {
-        a = parseFloat(a);
-        b = parseFloat(b);
-        console.log(a, b, operation);
-        if (operation === '+') return a + b;
-        if (operation === '-') return a - b;
-        if (operation === 'x') return a * b;
-        if (operation === '/') return a / b;
+          a = parseFloat(a);
+          b = parseFloat(b);
+          console.log(a, b, operation);
+          if (operation === '+') return a + b;
+          if (operation === '-') return a - b;
+          if (operation === 'x') return a * b;
+          if (operation === '/') return a / b;
       }
 
-- 
+- For the result, we must verify that we pressed the "=" button. here our priority should be to check the "operation" because if the "operation" is null then displayEntry will show underfined. If "operation" is not null, the "oparate()" function will work.
+-     else if (buttonPress === '=') {
+                
+          if (operation != null) {
+              displayEntry = operate(prevEntry, displayEntry, operation);
+              operation = null;
+          }
+          displayEntry = displayEntry + '';
+          ans = displayEntry;
+          $('.save').html('')
+      }
