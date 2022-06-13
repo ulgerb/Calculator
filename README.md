@@ -22,10 +22,12 @@
 ## Explanation (Türkçe anlatımı aşağıdadır.)
 
 - First part of the code is to save the text from the button.
-- In order for "dell" to do the deletion, the displayEntry text needs to be reduced by 1.
--     displayEntry = displayEntry.substring(0, displayEntry.length - 1);
+- In order for "del" to do the deletion, the displayEntry text needs to be reduced by 1.
+-     else if (buttonPress === 'del') {
+          displayEntry = displayEntry.substring(0, displayEntry.length - 1);
+      }
 
-- Second part, need to verify that the text from displayEntryy is the number.
+- Second part, need to verify that the text from displayEntry is the number.
 -     number_true = function (value) {
           return !isNaN(value);
       }
@@ -39,12 +41,12 @@
           else displayEntry = displayEntry + buttonPress;
        }
 
-- Third part, now let's examine the cases where displayEntry is not a number.
+- Third part, let's examine the cases where displayEntry is not a number.
 -     number_false = function (value) {
           return isNaN(value);
       }
 
-- If the operator key is pressed, our priority should be to parse our number from the displayEntry. For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. After saving the number and operator, we clear the displayEntry.
+- If the operator key is pressed, our priority should be to parse our number from the displayEntry(for example; displayEntry == 45+). For this, the "parseFloat" method should be used. so we can save the first number we entered in another variable. After saving the number and operator, we clear the displayEntry.
 -     if (operator_true(buttonPress)) {
           prevEntry = parseFloat(displayEntry)
           operation = buttonPress;
@@ -68,7 +70,66 @@
 
 - For the result, we must verify that we pressed the "=" button. here our priority should be to check the "operation" because if the "operation" is null then displayEntry will show underfined. If "operation" is not null, the "oparate()" function will work.
 -     else if (buttonPress === '=') {
-                
+          if (operation != null) {
+              displayEntry = operate(prevEntry, displayEntry, operation);
+              operation = null;
+          }
+          displayEntry = displayEntry + '';
+          ans = displayEntry;
+          $('.save').html('')
+      }
+
+## Açıklama
+
+- Kodun ilk kısmı, butondan gelen metnileri displayEntry içine kaydetmeliyiz.
+- silme işlemini yapabilmesi için displayEntry metninin 1 azaltılması gerekir. Böylelikle yazılan son değeri silmiş yada değişkenden çıkarmış oluyoruz.
+-     else if (buttonPress === 'del') {
+          displayEntry = displayEntry.substring(0, displayEntry.length - 1);
+      }
+
+- İkinci kısım, displayEntryy'den gelen metnin sayı olduğunu doğrulamamız gerekiyor.
+-     number_true = function (value) {
+          return !isNaN(value);
+      }
+
+- Basılan butonun bir sayı olduğunu doğruladıktan sonra "if" koşulunu kullanarak sayıları displayEntry'ye yazdırabiliriz.
+-     else if (number_true(buttonPress)) {
+          if (displayEntry === '0') displayEntry = buttonPress;
+          else if (displayEntry == 'Infinity') displayEntry = buttonPress;
+          else if (displayEntry == 'NaN') displayEntry = buttonPress;
+          else if (displayEntry == 'undefined') displayEntry = buttonPress;
+          else displayEntry = displayEntry + buttonPress;
+       }
+
+- Üçüncü kısım, displayEntry'nin sayı olmadığı durumları inceleyelim.
+-     number_false = function (value) {
+          return isNaN(value);
+      }
+
+- Operatör tuşuna basılırsa, önceliğimiz displayEntry'den numaramızı ayrıştırmak olmalıdır çünkü displayEntry'de görülecek şey "45+" gibi bir şey olacaktır biz ise "45" ve "+" farklı değişkenlere atanmasını istiyoruz. Bunun için "parseFloat" yöntemi kullanılmalıdır. böylece girdiğimiz ilk sayıyı başka bir değişkene kaydedebiliriz. Numarayı ve operatörü kaydettikten sonra displayEntry'yi temizliyoruz.
+-     if (operator_true(buttonPress)) {
+          prevEntry = parseFloat(displayEntry)
+          operation = buttonPress;
+          saveScreen() // Up screen
+          displayEntry = '';         
+      }
+      operator_true = function (value) {
+          return value === '/' || value === 'x' || value === '+' || value === '-';
+      }
+
+- Dördüncü kısım, sonucun ne olduğunu bulmak için "+", "-", "*", "/" işlemlerini yaptığımız bir fonksiyona ihtiyacımız var.
+-     if (operator_true(buttonPress)) {
+          prevEntry = parseFloat(displayEntry)
+          operation = buttonPress;
+          saveScreen() // Up screen
+          displayEntry = '';         
+      }
+      operator_true = function (value) {
+          return value === '/' || value === 'x' || value === '+' || value === '-';
+      }
+
+- sonuç için "=" butonuna bastığımızı doğrulamalıyız. burada önceliğimiz "operation" içini kontrol etmek olmalı çünkü "operation" içi null ise displayEntry underfined göstericektir. "operation" içi null değil ise "oparate()" fonksiyonu çalışıcaktır.
+-     else if (buttonPress === '=') {
           if (operation != null) {
               displayEntry = operate(prevEntry, displayEntry, operation);
               operation = null;
