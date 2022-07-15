@@ -5,6 +5,7 @@
 
 <img src='https://user-images.githubusercontent.com/98836519/173416138-89c8b603-83eb-4563-8935-4622f751221e.gif' width='440' loop="true" autoplay="true !important" controls muted> 
 
+kaliteli video için;
 <details  class="details-reset border rounded-2 " style="max-width:440px !important;">
   <summary class="px-3 py-2" style="max-width:440px !important;">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
@@ -13,11 +14,8 @@
     <span aria-label="Video açıklaması hesaplayıcı.mp4" class="m-1"><font style="vertical-align: inherit;" ><font style="vertical-align: inherit;">calculator.mp4</font></font></span>
     <span class="dropdown-caret"></span>
   </summary>
-
-kaliteli video için; 
   
-  <video src="https://user-images.githubusercontent.com/98836519/173416368-8123bb4c-a893-4fa6-90c6-8b773b0f894f.mp4" data-canonical-src="https://user-images.githubusercontent.com/98836519/173416368-8123bb4c-a893-4fa6-90c6-8b773b0f894f.mp4" controls="controls" autoplay muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-width:440px !important;">
-
+  <video src="https://user-images.githubusercontent.com/98836519/173416368-8123bb4c-a893-4fa6-90c6-8b773b0f894f.mp4" data-canonical-src="https://user-images.githubusercontent.com/98836519/173416368-8123bb4c-a893-4fa6-90c6-8b773b0f894f.mp4" controls="controls" autoplay muted="muted" loop class="d-block rounded-bottom-2 border-top width-fit" style="max-width:440px !important;">
   </video>
 </details>
 
